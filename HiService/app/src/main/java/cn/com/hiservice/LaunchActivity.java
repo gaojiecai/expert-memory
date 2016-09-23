@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.hiserivice.hiservice.BaseActivity;
+import cn.com.hiserivice.hiservice.navi.Modules;
+import cn.com.hiserivice.hiservice.navi.Navi;
 import pub.devrel.easypermissions.EasyPermissions;
 
 /**
@@ -45,7 +47,8 @@ public class LaunchActivity extends Activity implements EasyPermissions.Permissi
      * 跳到首页
      */
     private void home() {
-        
+        Navi.from(this).component(Modules.HOME.HomeActivity).go();
+        finish();
     }
 
     /**
