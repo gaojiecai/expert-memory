@@ -164,6 +164,17 @@ public class BaseActivity extends Activity implements EasyPermissions.Permission
         return result;
     }
 
+    // to be extended by subclass to receive notifications of permissions granted or not
+    public static abstract class PermissionReqCallBack {
+        public void onPartialPermissionAllowed(List<String> perms) {
+
+        }
+
+        public abstract void onAllPermissionsAllowed(List<String> perms);
+
+        public abstract void onPermissionDenied(List<String> perms);
+    }
+
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
 

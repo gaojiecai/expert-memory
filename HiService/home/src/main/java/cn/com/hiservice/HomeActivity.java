@@ -1,9 +1,12 @@
 package cn.com.hiservice;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+import cn.com.hiserivice.hiservice.base.BaseActivity;
+
+public class HomeActivity extends BaseActivity {
+
+    private String[] tab = {"首页", "卡券", "发现", "我的"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

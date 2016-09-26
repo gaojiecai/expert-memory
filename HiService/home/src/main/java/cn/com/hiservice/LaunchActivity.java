@@ -13,7 +13,7 @@ import android.provider.Settings;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.com.hiserivice.hiservice.BaseActivity;
+import cn.com.hiserivice.hiservice.base.BaseActivity;
 import cn.com.hiserivice.hiservice.navi.Modules;
 import cn.com.hiserivice.hiservice.navi.Navi;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -100,7 +100,7 @@ public class LaunchActivity extends Activity implements EasyPermissions.Permissi
     public void onPermissionsGranted(int requestCode, List<String> perms) {
         if (perms.contains(requestedPerms)) {
             if (callBack != null) {
-                callBack.onAllPermissionAllowed(perms);
+                callBack.onAllPermissionsAllowed(perms);
             }
             home();
         } else {
