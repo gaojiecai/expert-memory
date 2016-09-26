@@ -43,7 +43,7 @@
             android:background="@null"
             android:singleLine="true"
             android:text="TITLE"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/color_000000"
             android:textSize="17sp" />
 
     </FrameLayout>

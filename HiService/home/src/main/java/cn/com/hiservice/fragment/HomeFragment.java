@@ -23,7 +23,7 @@ public class HomeFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (getCustomNav()!=null){
-            getCustomNav().getmMiddleTitleView().setText(HomeFragment.class.getSimpleName());
+            getCustomNav().getmMiddleTitleView().setText("嗨修养车");
         }
 
         return super.onCreateView(inflater, container, savedInstanceState);
