@@ -12,6 +12,7 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 import cn.com.hiserivice.card.CardFragment;
+import cn.com.hiserivice.find.FindFragment;
 import cn.com.hiserivice.hiservice.base.BaseActivity;
 import cn.com.hiserivice.hiservice.base.BaseFragment;
 import cn.com.hiserivice.hiservice.navi.Modules;
@@ -136,7 +137,7 @@ public class HomeActivity extends BaseActivity {
             case 1:
                 return new CardFragment();
             case 2:
-                return new BaseFragment();
+                return new FindFragment();
             case 3:
                 return new MineFragment();
         }
