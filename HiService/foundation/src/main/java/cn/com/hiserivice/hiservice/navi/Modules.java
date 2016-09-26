@@ -13,7 +13,7 @@ public class Modules {
             public static final String HOME_PAGE = "home";
             public static final String CARD_PAGE = "card";
             public static final String FIND_PAGE = "find";
-            public static final String MIME_PAGE = "mime";
+            public static final String MINE_PAGE = "mine";
         }
     }
 }

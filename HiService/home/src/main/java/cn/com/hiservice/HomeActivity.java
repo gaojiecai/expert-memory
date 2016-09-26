@@ -11,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
+import cn.com.hiserivice.card.CardFragment;
 import cn.com.hiserivice.hiservice.base.BaseActivity;
 import cn.com.hiserivice.hiservice.base.BaseFragment;
 import cn.com.hiserivice.hiservice.navi.Modules;
 import cn.com.hiserivice.hiservice.view.CustomNavView;
+import cn.com.hiserivice.mine.MineFragment;
 import cn.com.hiservice.fragment.HomeFragment;
 
 public class HomeActivity extends BaseActivity {
@@ -88,7 +90,7 @@ public class HomeActivity extends BaseActivity {
                 case Modules.HOME.SubModules.FIND_PAGE:
                     target_fragment = 2;
                     break;
-                case Modules.HOME.SubModules.MIME_PAGE:
+                case Modules.HOME.SubModules.MINE_PAGE:
                     target_fragment = 3;
                     break;
             }
@@ -127,16 +129,16 @@ public class HomeActivity extends BaseActivity {
     };
 
     private Fragment generateFragment(int i) {
-        String pageNum = null;
+        String pageName = null;
         switch (i) {
             case 0:
                 return new HomeFragment();
             case 1:
-                break;
+                return new CardFragment();
             case 2:
-                break;
+                return new BaseFragment();
             case 3:
-                break;
+                return new MineFragment();
         }
         BaseFragment baseFragment = new BaseFragment();
         return baseFragment;

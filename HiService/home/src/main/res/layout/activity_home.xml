@@ -19,7 +19,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px" />
+        android:layout_height="1px"
+        android:background="@color/color_dddcd6" />
 
     <TabWidget
         android:id="@+id/tab_widget"
