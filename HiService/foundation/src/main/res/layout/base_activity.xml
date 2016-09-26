@@ -4,4 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <cn.com.hiserivice.hiservice.view.CustomNavView
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" />
+
+    <FrameLayout
+        android:id="@+id/base_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+    </FrameLayout>
 </LinearLayout>
