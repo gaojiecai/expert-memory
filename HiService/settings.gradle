@@ -1,1 +1,1 @@
-include ':app', ':foundation'
+include ':home', ':foundation'
