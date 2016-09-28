@@ -39,6 +39,7 @@ public class HomeFragment extends BaseFragment {
         ReqModule.newRequest()
                 .tag(this)
                 .api(APIs.home.api)
+                .args("","")
                 .targetDataType(HomeData.class).listener(new IRequest.IListener<HomeData>() {
 
             @Override

@@ -15,6 +15,8 @@ public class ReqModule {
     WeakReference<Object> reqTag;
     private String api;
     private Type targetDataType;
+    private Map<String, Object> argsMap;
+    private Object argsObj;
     private IRequest.IListener listener;
 
     public static ReqModule newRequest() {
@@ -25,7 +27,7 @@ public class ReqModule {
         if (object == null) {
             return this;
         }
-        this.reqTag = new WeakReference<Object>(object);
+        this.reqTag = new WeakReference<>(object);
         tags.put(object, this.reqTag);
         return this;
     }
@@ -40,14 +42,49 @@ public class ReqModule {
         return this;
     }
 
+    public ReqModule args(String key, Object value) {
+        if (argsMap == null) {
+            argsMap = new HashMap<>();
+        }
+        argsMap.put(key, value);
+        return this;
+    }
+
+    public ReqModule args(Map<String, Object> args) {
+        if (argsMap == null) {
+            argsMap = new HashMap<>();
+        }
+        args.putAll(args);
+        return this;
+    }
+
+    public ReqModule args(Object obj) {
+        if (obj == null) {
+            return this;
+        }
+        if (obj instanceof Map){
+            args((Map)obj);
+            return this;
+        }
+        argsObj = obj;
+        return this;
+    }
+
     public <T> ReqModule listener(IRequest.IListener<T> listener) {
         this.listener = listener;
         return this;
     }
 
-    public void send(){
-        Map<String,Object> merged = new HashMap<>();
+    public void send() {
+        Map<String, Object> merged = new HashMap<>();
+        if (argsObj!=null){
+            Map arg1 = BaseRequest.getParmMap(argsObj,false);
+            merged.putAll(arg1);
+        }
+        if (argsMap !=null){
+            merged.putAll(argsMap);
+        }
 
-        BaseRequest.getInstance()
+        BaseRequest.getInstance().requestObjectResult(reqTag,api,merged,targetDataType,listener);
     }
 }
