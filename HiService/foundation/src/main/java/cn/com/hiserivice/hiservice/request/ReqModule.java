@@ -48,6 +48,6 @@ public class ReqModule {
     public void send(){
         Map<String,Object> merged = new HashMap<>();
 
-
+        BaseRequest.getInstance()
     }
 }
