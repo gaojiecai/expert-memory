@@ -9,6 +9,10 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.Headers;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 /**
@@ -18,6 +22,7 @@ public class BaseRequest {
 
     private static String mBaseUrl = APIs.host_online;
     private static BaseRequest me;
+    private static OkHttpClient okHttpClient = new OkHttpClient();
 
     private BaseRequest() {
     }
@@ -45,6 +50,25 @@ public class BaseRequest {
         Request.Builder builder = new Request.Builder();
 
         String url = generateQueryUrl(mBaseUrl, api, null);
+        Map<String, Object> paramMap = getParmMap(param, false);
+
+        if (paramMap == null) {
+            Request request = builder.url(url).headers(getNuiHeaders()).build();
+            send(request, null, callBackWrapper);
+            return;
+        }
+
+        FormBody.Builder fb = new FormBody.Builder();
+        for (Map.Entry<String, Object> entry : paramMap.entrySet()) {
+            fb.add(entry.getKey(), "" + entry.getValue());
+        }
+
+        Request request = builder.tag(tag).url(url).headers(getNuiHeaders()).post(fb.build()).build();
+        send(request, paramMap, callBackWrapper);
+    }
+
+    public void send(Request request, Map<String, Object> paramMap, Callback listener) {
+        okHttpClient.newCall(request).enqueue(listener);
     }
 
     /**
@@ -123,12 +147,18 @@ public class BaseRequest {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    params.put(name, value);
                 }
+                params.put(name, value);
             }
         }
 
         return params;
     }
+
+    public static Headers getNuiHeaders() {
+        Headers.Builder builder = new Headers.Builder();
+        return builder.build();
+    }
+
 
 }
