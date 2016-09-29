@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import cn.com.hiserivice.hiservice.base.BaseFragment;
 import cn.com.hiserivice.hiservice.request.APIs;
@@ -42,7 +43,7 @@ public class HomeFragment extends BaseFragment {
         String name = "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0" + time + "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0";
         String sign = MD5Util.getMD5String(name);
         ReqModule.newRequest()
-                /*.tag(this)*/
+                .tag(this)
                 .api(APIs.home.api)
                 .args("appid", "hiandroid")
                 .args("timestamp", time)
@@ -55,16 +56,16 @@ public class HomeFragment extends BaseFragment {
                 .args("series_id","")
                 .args("style_id","")
                 .args("version","3.3.1")
-                /*.targetDataType(HomeData.class)*/.listener(new IRequest.IListener<HomeData>() {
+                .targetDataType(HomeData.class).listener(new IRequest.IListener<HomeData>() {
 
             @Override
             public void onReceive(HomeData obj) {
-
+                Toast.makeText(getActivity(),"onReceive",Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailed(String errorCode, String msg) {
-
+                Toast.makeText(getActivity(),"onFailed",Toast.LENGTH_LONG).show();
             }
         }).send();
     }
