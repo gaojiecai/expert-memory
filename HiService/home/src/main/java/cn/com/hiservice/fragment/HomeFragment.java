@@ -60,7 +60,12 @@ public class HomeFragment extends BaseFragment {
 
             @Override
             public void onReceive(HomeData obj) {
-                Toast.makeText(getActivity(),"onReceive",Toast.LENGTH_LONG).show();
+                if (obj!=null){
+                    Toast.makeText(getActivity(),"onReceive:"+obj.getCommentList().getCommentList().get(0).getOpinion(),Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getActivity(),"onReceive:----------",Toast.LENGTH_LONG).show();
+                }
+
             }
 
             @Override

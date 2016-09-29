@@ -47,7 +47,7 @@ public class CallBackWrapper<T> implements Callback {
     @Override
     final public void onResponse(Call call, Response response) throws IOException {
         Log.v("gjc", "onResponse");
-        final Call dumy = call;
+        final Call dummy = call;
         if (!response.isSuccessful()) {
             onFailure(call, new IOException("Unexpected code " + response));
         }
@@ -56,7 +56,7 @@ public class CallBackWrapper<T> implements Callback {
         if (parser != null) {
             T data = parser.parser(response.body().bytes());
             res = new Result<>();
-            res.code = PubRtnCode.OK;
+            res.Code = PubRtnCode.OK;
             res.$_result = data;
         } else {
             Gson gson = new Gson();
@@ -70,8 +70,8 @@ public class CallBackWrapper<T> implements Callback {
                 res = gson.fromJson(response.body().charStream(), type);
             }
 
-            if (PubRtnCode.OK.equals(res.code)) {
-                res.$_result = gson.fromJson(res.data, targetType);
+            if (PubRtnCode.OK.equals(res.Code)) {
+                res.$_result = gson.fromJson(res.Data, targetType);
             } else {
 
             }
@@ -100,10 +100,10 @@ public class CallBackWrapper<T> implements Callback {
         @Override
         public void run() {
             if (res != null) {
-                if (PubRtnCode.OK.equals(res.code)) {
+                if (PubRtnCode.OK.equals(res.Code)) {
                     listener.onReceive(res.$_result);
                 } else {
-                    listener.onFailed(res.code, res.message);
+                    listener.onFailed(res.Code, res.message);
                 }
                 return;
             }

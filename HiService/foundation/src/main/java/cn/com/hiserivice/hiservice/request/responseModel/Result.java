@@ -10,7 +10,7 @@ public class Result<T> {
     public String message;
     public String tip;
     public String action;
-    public String code;
-    public JsonElement data;
+    public String Code;
+    public JsonElement Data;
     public T $_result;
 }
