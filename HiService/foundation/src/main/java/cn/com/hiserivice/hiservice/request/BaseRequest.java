@@ -155,8 +155,16 @@ public class BaseRequest {
         return params;
     }
 
+    /**
+     * 请求头 公共参数放在请求头中
+     */
     public static Headers getNuiHeaders() {
         Headers.Builder builder = new Headers.Builder();
+        /*builder.add("appid", "hiandroid");
+        builder.add("timestamp", System.currentTimeMillis() + "");
+        String name = "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0" + System.currentTimeMillis() + "" + "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0";
+        String sign = MD5Util.getMD5String(name);
+        builder.add("sign", sign);*/
         return builder.build();
     }
 

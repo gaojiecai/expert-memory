@@ -8,6 +8,6 @@ public class APIs {
     public static final String host_online = "http://api.haixiuauto.com/api/";
 
     public static class home{
-        public static String api = "v3.3.0";
+        public static String api = "v3.3.0/";
     }
 }
