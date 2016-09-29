@@ -37,13 +37,15 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void getData() {
-        String name = "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0" + System.currentTimeMillis() + "" + "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0";
+
+        String time = System.currentTimeMillis() + "";
+        String name = "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0" + time + "cqI4mAv2orQr3fJtTJgmaGbA3ifi8eR0";
         String sign = MD5Util.getMD5String(name);
         ReqModule.newRequest()
-                .tag(this)
+                /*.tag(this)*/
                 .api(APIs.home.api)
                 .args("appid", "hiandroid")
-                .args("timestamp", System.currentTimeMillis() + "")
+                .args("timestamp", time)
                 .args("sign", sign)
                 .args("action","appIndex")
                 .args("uid","")
@@ -52,7 +54,8 @@ public class HomeFragment extends BaseFragment {
                 .args("longitude","121.58846")
                 .args("series_id","")
                 .args("style_id","")
-                .targetDataType(HomeData.class).listener(new IRequest.IListener<HomeData>() {
+                .args("version","3.3.1")
+                /*.targetDataType(HomeData.class)*/.listener(new IRequest.IListener<HomeData>() {
 
             @Override
             public void onReceive(HomeData obj) {

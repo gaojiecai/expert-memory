@@ -5,9 +5,9 @@ package cn.com.hiserivice.hiservice.request;
  */
 public class APIs {
 
-    public static final String host_online = "http://api.haixiuauto.com/api/";
+    public static final String host_online = "http://api.hiservice.com.cn";
 
     public static class home{
-        public static String api = "v3.3.0/";
+        public static String api = "/api/v3.3.0";
     }
 }
