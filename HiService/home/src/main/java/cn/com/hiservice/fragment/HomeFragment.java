@@ -2,6 +2,7 @@ package cn.com.hiservice.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import cn.com.hiserivice.hiservice.request.APIs;
 import cn.com.hiserivice.hiservice.request.IRequest;
 import cn.com.hiserivice.hiservice.request.ReqModule;
 import cn.com.hiserivice.hiservice.security.MD5Util;
+import cn.com.hiservice.R;
 import cn.com.hiservice.vo.HomeData;
 
 /**
@@ -19,10 +21,8 @@ import cn.com.hiservice.vo.HomeData;
  */
 public class HomeFragment extends BaseFragment {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private View mRootView;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -32,9 +32,12 @@ public class HomeFragment extends BaseFragment {
             getCustomNav().getmMiddleTitleView().setText("嗨修养车");
         }
 
+        mRootView = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = (RecyclerView) mRootView.findViewById(R.id.home_recycler_view);
+
         getData();
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return mRootView;
     }
 
     private void getData() {
@@ -48,29 +51,29 @@ public class HomeFragment extends BaseFragment {
                 .args("appid", "hiandroid")
                 .args("timestamp", time)
                 .args("sign", sign)
-                .args("action","appIndex")
-                .args("uid","")
-                .args("brand_id","")
-                .args("latitude","31.207719")
-                .args("longitude","121.58846")
-                .args("series_id","")
-                .args("style_id","")
-                .args("version","3.3.1")
+                .args("action", "appIndex")
+                .args("uid", "")
+                .args("brand_id", "")
+                .args("latitude", "31.207719")
+                .args("longitude", "121.58846")
+                .args("series_id", "")
+                .args("style_id", "")
+                .args("version", "3.3.1")
                 .targetDataType(HomeData.class).listener(new IRequest.IListener<HomeData>() {
 
             @Override
             public void onReceive(HomeData obj) {
-                if (obj!=null){
-                    Toast.makeText(getActivity(),"onReceive:"+obj.getCommentList().getCommentList().get(0).getOpinion(),Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getActivity(),"onReceive:----------",Toast.LENGTH_LONG).show();
+                if (obj != null) {
+                    Toast.makeText(getActivity(), "onReceive:" + obj.getCommentList().getCommentList().get(0).getOpinion(), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), "onReceive:----------", Toast.LENGTH_LONG).show();
                 }
 
             }
 
             @Override
             public void onFailed(String errorCode, String msg) {
-                Toast.makeText(getActivity(),"onFailed",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "onFailed", Toast.LENGTH_LONG).show();
             }
         }).send();
     }
