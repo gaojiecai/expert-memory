@@ -25,5 +25,8 @@ dependencies {
     compile 'pub.devrel:easypermissions:0.2.0'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.google.code.gson:gson:2.7'
-    compile 'com.android.support:recyclerview-v7:24.0.0'
+    compile 'com.android.support:recyclerview-v7:23.0.0'
+
+    // 其他依赖
+    compile 'com.facebook.fresco:fresco:0.12.0'
 }

@@ -3,6 +3,8 @@ package cn.com.hiserivice.hiservice.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * Created by gaojicai1 on 2016/9/23.
  */
@@ -19,5 +21,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         me = this;
+
+        Fresco.initialize(this);
     }
 }
