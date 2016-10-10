@@ -3,32 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <cn.com.hiservice.view.CircleViewPager
-        android:id="@+id/home_viewpager"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/home_entrance2"
-        layout="@layout/home_entrance2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/home_entrance" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/home_entrance2"
-        android:divider="#ffff0000"
-        android:dividerHeight="10dp" />
+            <cn.com.hiservice.view.CircleViewPager
+                android:id="@+id/home_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="120dp" />
 
-    <include
-        android:id="@+id/home_entrance"
-        layout="@layout/home_entrance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/home_viewpager" />
+            <include
+                android:id="@+id/home_entrance2"
+                layout="@layout/home_entrance2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_entrance" />
+
+            <include
+                android:id="@+id/home_entrance3"
+                layout="@layout/home_entrance3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_entrance2" />
+
+            <include
+                android:id="@+id/home_entrance4"
+                layout="@layout/home_entrance4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_entrance3" />
+
+            <include
+                android:id="@+id/home_entrance5"
+                layout="@layout/home_entrance5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_entrance4" />
+
+            <include
+                android:id="@+id/home_entrance6"
+                layout="@layout/home_entrance6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_entrance5" />
+
+
+            <include
+                android:id="@+id/home_entrance"
+                layout="@layout/home_entrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/home_viewpager" />
+
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

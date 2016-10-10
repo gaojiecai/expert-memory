@@ -2,17 +2,10 @@ package cn.com.hiservice.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import cn.com.hiserivice.hiservice.base.BaseFragment;
 import cn.com.hiserivice.hiservice.request.APIs;
@@ -29,11 +22,7 @@ import cn.com.hiservice.vo.HomeData;
 public class HomeFragment extends BaseFragment {
 
     private View mRootView;
-    private RecyclerView mRecyclerView;
-    private HomeAdapter adapter;
     private CircleViewPager circleViewPager;
-
-    private List<String> mDatas;
 
     @Nullable
     @Override
@@ -43,55 +32,11 @@ public class HomeFragment extends BaseFragment {
             getCustomNav().getmMiddleTitleView().setText("嗨修养车");
         }
         getData();
-        initData();
 
         mRootView = inflater.inflate(R.layout.fragment_home, container, false);
-        circleViewPager = (CircleViewPager)mRootView.findViewById(R.id.home_viewpager);
-        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.home_recycler_view);
-        //设置布局管理器
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),4));
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
-        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(adapter = new HomeAdapter());
-
-
+        circleViewPager = (CircleViewPager) mRootView.findViewById(R.id.home_viewpager);
 
         return mRootView;
-    }
-
-    private void initData() {
-        mDatas = new ArrayList<>();
-        for (int i = 'A';i<'z';i++){
-            mDatas.add(" "+(char)i);
-        }
-    }
-
-    class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            MyViewHolder holder = new MyViewHolder(LayoutInflater.from(getActivity()).inflate(R.layout.item,parent,false));
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
-            holder.tv.setText(mDatas.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return mDatas.size();
-        }
-
-        class MyViewHolder extends RecyclerView.ViewHolder {
-            TextView tv;
-
-            public MyViewHolder(View view) {
-                super(view);
-                this.tv = (TextView)view.findViewById(R.id.textView);
-            }
-        }
     }
 
     private void getData() {
