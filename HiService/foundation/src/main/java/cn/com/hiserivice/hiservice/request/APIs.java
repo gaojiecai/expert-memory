@@ -10,4 +10,8 @@ public class APIs {
     public static class home{
         public static String api = "/api/v3.3.0";
     }
+
+    public static class card{
+        public static String api = "/api/v3.3.0";
+    }
 }
