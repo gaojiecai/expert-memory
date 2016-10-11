@@ -12,12 +12,18 @@ import cn.com.hiserivice.hiservice.base.BaseFragment;
  * Created by gaojicai1 on 2016/9/26.
  */
 public class MineFragment extends BaseFragment {
+
+    private View mRootView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (getCustomNav()!=null){
+        if (getCustomNav() != null) {
             getCustomNav().setVisibility(View.GONE);
         }
-        return super.onCreateView(inflater, container, savedInstanceState);
+
+        mRootView = inflater.inflate(R.layout.mine_fragment, container, false);
+
+        return mRootView;
     }
 }
