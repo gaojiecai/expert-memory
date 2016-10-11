@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.com.hiserivice.hiservice.view.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/find_header" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_dedede" />
+
+        <LinearLayout
+            android:id="@+id/hot_acti"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical"
+            android:tag="sticky">
+
+
+            <TextView
+                android:id="@+id/tv_hot_acti"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:text="热门活动"
+                android:textColor="@color/color_999999"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </LinearLayout>
+</cn.com.hiserivice.hiservice.view.StickyScrollView>

@@ -16,7 +16,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (getCustomNav()!=null){
-            getCustomNav().getmMiddleTitleView().setText(MineFragment.class.getSimpleName());
+            getCustomNav().setVisibility(View.GONE);
         }
         return super.onCreateView(inflater, container, savedInstanceState);
     }

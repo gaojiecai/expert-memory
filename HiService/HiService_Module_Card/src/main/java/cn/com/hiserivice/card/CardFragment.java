@@ -30,6 +30,7 @@ public class CardFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (getCustomNav() != null) {
+            getCustomNav().setVisibility(View.VISIBLE);
             getCustomNav().getmMiddleTitleView().setText("卡券");
         }
         mRootView = inflater.inflate(R.layout.fragment_card, container, false);

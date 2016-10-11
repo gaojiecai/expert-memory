@@ -29,6 +29,7 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (getCustomNav() != null) {
+            getCustomNav().setVisibility(View.VISIBLE);
             getCustomNav().getmMiddleTitleView().setText("嗨修养车");
         }
         getData();
